@@ -1,8 +1,20 @@
 #ifndef OXYTEX_TEXTDETECT_H_
 #define OXYTEX_TEXTDETECT_H_
 
-namespace textdetect {
-    void load_models();
+#include <string>
+#include <opencv2/opencv.hpp>
+
+namespace txdt {
+
+cv::Mat load_image(const std::string& img_file);
+
+std::pair<cv::Mat, double> resize_aspect_ratio(
+    cv::Mat img,
+    std::size_t square_size,
+    int interpolation,
+    double mag_ratio = 1
+);
+
 }
 
 #endif
